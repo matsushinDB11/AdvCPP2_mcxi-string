@@ -14,10 +14,28 @@ namespace cpp2 {
     public:
         mcxi(const std::string mcxi_string) {
             for (const char s:mcxi_string) {
+                std::cout << s << " ";
                 switch (s) {
-                    case "m":
+                    case 'm':
+                        break;
+                    case 'c':
+                        break;
+                    case 'x':
+                        break;
+                    case 'i':
+                        break;
+                    default:
+                        break;
                 }
             }
+            // wip
+            mcxi_number = 0;
+        }
+
+        mcxi operator + (mcxi r) {
+            mcxi mc("");
+            mc.mcxi_number = this->mcxi_number += r.mcxi_number;
+            return mc;
         }
 
         std::string to_string() {
