@@ -8,14 +8,28 @@ namespace cpp2 {
     */
     /* --------------------------------------------------------------------- */
     class mcxi {
+    private:
+        int mcxi_number;
 
+    public:
+        mcxi(const std::string mcxi_string) {
+            for (const char s:mcxi_string) {
+                switch (s) {
+                    case "m":
+                }
+            }
+        }
+
+        std::string to_string() {
+            return "hogehoge";
+        }
     };
 } // namespace cpp2
-int main(){
+int main() {
     cpp2::mcxi a0("xi");
     cpp2::mcxi b0("x9i");
     cpp2::mcxi result0 = a0 + b0;
-    std::cout << "3x" <<" " << result0.to_string() << std::endl;
+    std::cout << "3x" << " " << result0.to_string() << std::endl;
     cpp2::mcxi a1("i");
     cpp2::mcxi b1("9i");
     cpp2::mcxi result1 = a1 + b1;
