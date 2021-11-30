@@ -13,23 +13,32 @@ namespace cpp2 {
 
     public:
         mcxi(const std::string mcxi_string) {
+            int weight = 1;
+            int value = 0;
             for (const char s:mcxi_string) {
-                std::cout << s << " ";
                 switch (s) {
                     case 'm':
+                        value += weight * 1000;
+                        weight = 1;
                         break;
                     case 'c':
+                        value += weight * 100;
+                        weight = 1;
                         break;
                     case 'x':
+                        value += weight * 10;
+                        weight = 1;
                         break;
                     case 'i':
+                        value += weight;
+                        weight = 1;
                         break;
                     default:
+                        weight = s - '0';
                         break;
                 }
             }
-            // wip
-            mcxi_number = 0;
+            mcxi_number = value;
         }
 
         mcxi operator + (mcxi r) {
@@ -39,7 +48,7 @@ namespace cpp2 {
         }
 
         std::string to_string() {
-            return "hogehoge";
+            return std::to_string(mcxi_number);
         }
     };
 } // namespace cpp2
