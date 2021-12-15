@@ -11,31 +11,31 @@ namespace cpp2 {
     private:
         int mcxi_number;
 
+    // 参考: https://wandbox.org/permlink/Ey13LxxOGuS4UpK1
+    private:
+        int unit(char s) {
+            switch (s) {
+                case 'm':
+                    return 1000;
+                case 'c':
+                    return 100;
+                case 'x':
+                    return 10;
+                case 'i':
+                    return 1;
+                default:
+                    return -1;
+            }
+        }
     public:
         mcxi(const std::string mcxi_string) {
             int weight = 1;
             int value = 0;
             for (const char s:mcxi_string) {
-                switch (s) {
-                    case 'm':
-                        value += weight * 1000;
-                        weight = 1;
-                        break;
-                    case 'c':
-                        value += weight * 100;
-                        weight = 1;
-                        break;
-                    case 'x':
-                        value += weight * 10;
-                        weight = 1;
-                        break;
-                    case 'i':
-                        value += weight;
-                        weight = 1;
-                        break;
-                    default:
-                        weight = s - '0';
-                        break;
+                if ('2' <= s && s <= '9') {
+                    weight = s - '0';
+                } else {
+                    value = weight * unit(s);
                 }
             }
             mcxi_number = value;
